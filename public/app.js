@@ -1,12 +1,6 @@
-const {
-  useState,
-  useEffect,
-  useCallback,
-  useMemo,
-  createContext,
-  useContext
-} = React;
-const AuthContext = createContext(null);
+// React hooks accessed via React.*
+
+const AuthContext = React.createContext(null);
 const DEMO_ACCOUNTS = [{
   id: "admin-1",
   email: "admin@mindwell.com",
@@ -742,7 +736,7 @@ const Btn = ({
 }) => {
   const {
     theme: t
-  } = useContext(AuthContext) || {};
+  } = React.useContext(AuthContext) || {};
   const th = t || THEMES.wellness;
   const bg = primary ? th.primary : outline ? "transparent" : `${th.primary}10`;
   const clr = primary ? "#fff" : outline ? th.primary : th.primary;
@@ -772,7 +766,7 @@ const Modal = ({
 }) => {
   const {
     theme
-  } = useContext(AuthContext);
+  } = React.useContext(AuthContext);
   if (!show) return null;
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -837,8 +831,8 @@ const Toast = ({
 }) => {
   const {
     theme
-  } = useContext(AuthContext);
-  useEffect(() => {
+  } = React.useContext(AuthContext);
+  React.useEffect(() => {
     const t = setTimeout(onClose, 3000);
     return () => clearTimeout(t);
   }, [onClose]);
@@ -887,11 +881,11 @@ const genLessons = (count, progress) => Array.from({
 const LoginPage = ({
   onLogin
 }) => {
-  const [org, setOrg] = useState("wellness");
-  const [email, setEmail] = useState("");
-  const [pw, setPw] = useState("");
-  const [err, setErr] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [org, setOrg] = React.useState("wellness");
+  const [email, setEmail] = React.useState("");
+  const [pw, setPw] = React.useState("");
+  const [err, setErr] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   const t = THEMES[org];
   const submit = e => {
     e.preventDefault();
@@ -1259,7 +1253,7 @@ const Dashboard = ({
     user,
     theme,
     courses
-  } = useContext(AuthContext);
+  } = React.useContext(AuthContext);
   const done = courses.filter(c => c.progress === 100);
   const active = courses.filter(c => c.progress > 0 && c.progress < 100);
   const total = courses.length ? Math.round(courses.reduce((a, c) => a + c.progress, 0) / courses.length) : 0;
@@ -1654,9 +1648,9 @@ const CoursesList = ({
     user,
     theme,
     courses
-  } = useContext(AuthContext);
-  const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("all");
+  } = React.useContext(AuthContext);
+  const [search, setSearch] = React.useState("");
+  const [filter, setFilter] = React.useState("all");
   const filtered = courses.filter(c => {
     const ms = c.title.toLowerCase().includes(search.toLowerCase()) || c.cat.toLowerCase().includes(search.toLowerCase());
     const mf = filter === "all" || filter === "active" && c.progress > 0 && c.progress < 100 || filter === "done" && c.progress === 100 || filter === "new" && c.progress === 0;
@@ -1839,12 +1833,12 @@ const CourseDetail = ({
 }) => {
   const {
     theme
-  } = useContext(AuthContext);
-  const [course, setCourse] = useState(init);
-  const [activeL, setActiveL] = useState(null);
-  const [quiz, setQuiz] = useState({});
-  const [submitted, setSubmitted] = useState(false);
-  const lessons = useMemo(() => genLessons(course.lc, course.progress), [course]);
+  } = React.useContext(AuthContext);
+  const [course, setCourse] = React.useState(init);
+  const [activeL, setActiveL] = React.useState(null);
+  const [quiz, setQuiz] = React.useState({});
+  const [submitted, setSubmitted] = React.useState(false);
+  const lessons = React.useMemo(() => genLessons(course.lc, course.progress), [course]);
   const complete = id => {
     const idx = lessons.findIndex(l => l.id === id);
     setCourse(p => ({
@@ -2351,9 +2345,9 @@ const ExpertsPage = () => {
   const {
     user,
     theme
-  } = useContext(AuthContext);
-  const [booking, setBooking] = useState(null);
-  const [booked, setBooked] = useState(false);
+  } = React.useContext(AuthContext);
+  const [booking, setBooking] = React.useState(null);
+  const [booked, setBooked] = React.useState(false);
   const experts = EXPERTS[user.org];
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
     style: {
@@ -2590,9 +2584,9 @@ const Achievements = () => {
   const {
     theme,
     courses
-  } = useContext(AuthContext);
+  } = React.useContext(AuthContext);
   const done = courses.filter(c => c.progress === 100);
-  const [cert, setCert] = useState(null);
+  const [cert, setCert] = React.useState(null);
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
     style: {
       fontSize: 22,
@@ -2919,10 +2913,10 @@ const UsersPage = () => {
   const {
     theme,
     courses
-  } = useContext(AuthContext);
-  const [invite, setInvite] = useState(false);
-  const [toast, setToast] = useState(null);
-  const [search, setSearch] = useState("");
+  } = React.useContext(AuthContext);
+  const [invite, setInvite] = React.useState(false);
+  const [toast, setToast] = React.useState(null);
+  const [search, setSearch] = React.useState("");
   const filtered = USERS.filter(u => u.name.toLowerCase().includes(search.toLowerCase()) || u.email.toLowerCase().includes(search.toLowerCase()));
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3197,10 +3191,10 @@ const ContentPage = () => {
   const {
     theme,
     courses
-  } = useContext(AuthContext);
-  const [upload, setUpload] = useState(false);
-  const [toast, setToast] = useState(null);
-  const [drag, setDrag] = useState(false);
+  } = React.useContext(AuthContext);
+  const [upload, setUpload] = React.useState(false);
+  const [toast, setToast] = React.useState(null);
+  const [drag, setDrag] = React.useState(false);
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
@@ -3456,7 +3450,7 @@ const AnalyticsPage = () => {
   const {
     theme,
     courses
-  } = useContext(AuthContext);
+  } = React.useContext(AuthContext);
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
     style: {
       fontSize: 22,
@@ -3608,8 +3602,8 @@ const Settings = () => {
   const {
     user,
     theme
-  } = useContext(AuthContext);
-  const [toast, setToast] = useState(null);
+  } = React.useContext(AuthContext);
+  const [toast, setToast] = React.useState(null);
   return /*#__PURE__*/React.createElement("div", {
     style: {
       maxWidth: 600
@@ -3820,17 +3814,17 @@ const Settings = () => {
 
 // MAIN APP
 window.LMSApp = function LMSApp() {
-  const [user, setUser] = useState(null);
-  const [themeKey, setThemeKey] = useState("wellness");
-  const [view, setView] = useState("dashboard");
-  const [viewData, setViewData] = useState(null);
-  const [sidebar, setSidebar] = useState(true);
-  const [notifs, setNotifs] = useState(false);
-  const [anim, setAnim] = useState(false);
+  const [user, setUser] = React.useState(null);
+  const [themeKey, setThemeKey] = React.useState("wellness");
+  const [view, setView] = React.useState("dashboard");
+  const [viewData, setViewData] = React.useState(null);
+  const [sidebar, setSidebar] = React.useState(true);
+  const [notifs, setNotifs] = React.useState(false);
+  const [anim, setAnim] = React.useState(false);
   const theme = THEMES[themeKey];
   const courses = COURSES[themeKey];
   const isAdm = user?.role === "admin" || user?.role === "manager";
-  useEffect(() => {
+  React.useEffect(() => {
     setAnim(true);
     const t = setTimeout(() => setAnim(false), 350);
     return () => clearTimeout(t);
