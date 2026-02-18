@@ -12,12 +12,12 @@ const DEMO_ACCOUNTS = [{
   org: "wellness"
 }, {
   id: "admin-2",
-  email: "admin@nursepath.com",
+  email: "admin@nouvelleed.com",
   password: "admin123",
-  firstName: "Dr. James",
-  lastName: "Park",
+  firstName: "Dr. Rachel",
+  lastName: "Torres",
   role: "admin",
-  avatar: "JP",
+  avatar: "RT",
   org: "healthcare"
 }, {
   id: "admin-3",
@@ -39,10 +39,10 @@ const DEMO_ACCOUNTS = [{
   org: "wellness"
 }, {
   id: "learner-2",
-  email: "maria@hospital.com",
+  email: "maria@nouvelleed.com",
   password: "learn123",
   firstName: "Maria",
-  lastName: "Santos",
+  lastName: "Santos, MSN",
   role: "learner",
   avatar: "MS",
   org: "healthcare"
@@ -95,8 +95,8 @@ const THEMES = {
     loginSubtext: "Empowering your team's mental and emotional wellbeing"
   },
   healthcare: {
-    name: "NursePath",
-    tagline: "Continuing Education for Healthcare Professionals",
+    name: "Nouvelle ED",
+    tagline: "NP Residency Program — Emergency Department",
     primary: "#0077B6",
     primaryLight: "#00B4D8",
     primaryDark: "#023E8A",
@@ -118,9 +118,9 @@ const THEMES = {
     font: "'IBM Plex Sans', sans-serif",
     fontDisplay: "'Playfair Display', serif",
     icon: "\u{1F3E5}",
-    industry: "Healthcare",
+    industry: "Emergency Medicine",
     loginImage: "\u{2695}\u{FE0F}",
-    loginSubtext: "Advance your clinical expertise with accredited courses"
+    loginSubtext: "Building practice-ready emergency nurse practitioners through milestone-based residency training"
   },
   education: {
     name: "CampusLearn",

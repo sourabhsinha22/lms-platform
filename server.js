@@ -288,7 +288,7 @@ async function seedDatabase() {
 
   const orgs = [
     { id: uid(), slug: "mindwell", name: "MindWell", industry: "WELLNESS", theme: "wellness" },
-    { id: uid(), slug: "nursepath", name: "NursePath", industry: "HEALTHCARE", theme: "healthcare" },
+    { id: uid(), slug: "nouvelleed", name: "Nouvelle ED", industry: "HEALTHCARE", theme: "healthcare" },
     { id: uid(), slug: "campuslearn", name: "CampusLearn", industry: "EDUCATION", theme: "education" },
   ];
 
@@ -307,10 +307,12 @@ async function seedDatabase() {
       { email: "bob@company.com", fn: "Bob", ln: "Smith", role: "LEARNER", hash: learnerHash, pts: 980 },
       { email: "henry@company.com", fn: "Henry", ln: "Brown", role: "LEARNER", hash: learnerHash, pts: 2100 },
     ],
-    nursepath: [
-      { email: "admin@nursepath.com", fn: "Dr. James", ln: "Park", role: "ADMIN", hash: adminHash, pts: 800 },
-      { email: "maria@hospital.com", fn: "Maria", ln: "Santos", role: "LEARNER", hash: learnerHash, pts: 1540 },
-      { email: "nurse.lee@hospital.com", fn: "Jennifer", ln: "Lee", role: "LEARNER", hash: learnerHash, pts: 2100 },
+    nouvelleed: [
+      { email: "admin@nouvelleed.com", fn: "Dr. Rachel", ln: "Torres", role: "ADMIN", hash: adminHash, pts: 800 },
+      { email: "maria@nouvelleed.com", fn: "Maria", ln: "Santos, MSN, APRN", role: "LEARNER", hash: learnerHash, pts: 2840 },
+      { email: "jennifer@nouvelleed.com", fn: "Jennifer", ln: "Lee, MSN, FNP-C", role: "LEARNER", hash: learnerHash, pts: 2100 },
+      { email: "david@nouvelleed.com", fn: "David", ln: "Kim, DNP, AGACNP-BC", role: "LEARNER", hash: learnerHash, pts: 1540 },
+      { email: "priya@nouvelleed.com", fn: "Priya", ln: "Sharma, MSN, ENP-C", role: "LEARNER", hash: learnerHash, pts: 3200 },
     ],
     campuslearn: [
       { email: "admin@campuslearn.com", fn: "Prof. Nina", ln: "Torres", role: "ADMIN", hash: adminHash, pts: 600 },
@@ -337,13 +339,17 @@ async function seedDatabase() {
       { title: "Work-Life Balance Mastery", cat: "Balance", desc: "Create sustainable boundaries between work and personal life for long-term health.", diff: "BEGINNER", dur: "2 weeks", ce: 0, badge: "Balance Keeper", instr: "Dr. Elena Moss", tags: "balance,wellness", enrolled: 278, rating: 4.8 },
       { title: "Team Wellbeing Workshop", cat: "Team Health", desc: "Foster psychological safety, trust, and team cohesion in your workplace.", diff: "BEGINNER", dur: "1 week", ce: 0, badge: "Team Builder", instr: "Dr. Tom Harris", tags: "team,culture", enrolled: 98, rating: 4.5 },
     ],
-    nursepath: [
-      { title: "Advanced Patient Assessment", cat: "Clinical Skills", desc: "Master advanced assessment techniques including head-to-toe evaluation for complex patients.", diff: "ADVANCED", dur: "6 weeks", ce: 12, badge: "Assessment Expert", instr: "Dr. Rachel Green", tags: "assessment,clinical,NP", enrolled: 145, rating: 4.9 },
-      { title: "Pharmacology Updates 2025", cat: "Pharmacology", desc: "Stay current with the latest drug interactions, protocols, and prescribing guidelines.", diff: "INTERMEDIATE", dur: "4 weeks", ce: 8, badge: "Pharma Certified", instr: "Dr. Alan Brooks", tags: "pharmacology,drugs", enrolled: 203, rating: 4.7 },
-      { title: "Telehealth Best Practices", cat: "Telehealth", desc: "Deliver effective, compliant, patient-centered care through virtual platforms.", diff: "BEGINNER", dur: "2 weeks", ce: 4, badge: "Telehealth Pro", instr: "Dr. Lisa Wang", tags: "telehealth,virtual", enrolled: 167, rating: 4.8 },
-      { title: "Wound Care Certification", cat: "Wound Care", desc: "Comprehensive wound assessment, staging, treatment planning, and documentation.", diff: "ADVANCED", dur: "5 weeks", ce: 10, badge: "Wound Specialist", instr: "Dr. Kathy Nguyen", tags: "wound,certification", enrolled: 89, rating: 4.9 },
-      { title: "Mental Health Screening", cat: "Mental Health", desc: "Identify and respond to mental health concerns in your patient population.", diff: "INTERMEDIATE", dur: "3 weeks", ce: 6, badge: "MH Screener", instr: "Dr. David Kim", tags: "mental health,PHQ-9", enrolled: 134, rating: 4.6 },
-      { title: "Emergency Response Protocols", cat: "Emergency", desc: "Updated emergency protocols for rapid assessment and critical intervention.", diff: "ADVANCED", dur: "2 weeks", ce: 4, badge: "First Responder", instr: "Dr. Amy Foster", tags: "emergency,ACLS", enrolled: 256, rating: 4.8 },
+    nouvelleed: [
+      { title: "Emergency Patient Assessment & Triage", cat: "Residency — Milestone 1", desc: "Master rapid head-to-toe assessment of undifferentiated ED patients. Covers ESI triage, primary/secondary surveys, risk stratification, and medical decision-making under time pressure. Includes 5 clinical simulations.", diff: "ADVANCED", dur: "4 weeks", ce: 16, badge: "Triage Expert", instr: "Dr. Rachel Torres, MD, FACEP", tags: "assessment,triage,ESI,simulation", enrolled: 48, rating: 4.9 },
+      { title: "Acute Cardiac & Chest Pain Emergencies", cat: "Residency — Milestone 2", desc: "Evidence-based management of STEMI, NSTEMI, PE, aortic dissection, and pericardial tamponade. 12-lead ECG interpretation, troponin pathway decisions, and thrombolytic protocols. Case study: 58-year-old with atypical chest pain.", diff: "ADVANCED", dur: "3 weeks", ce: 12, badge: "Cardiac Certified", instr: "Dr. James Park, MD, FACC", tags: "cardiac,STEMI,ECG,chest pain,case study", enrolled: 48, rating: 4.9 },
+      { title: "Trauma & Resuscitation Management", cat: "Residency — Milestone 3", desc: "ATLS-based trauma assessment, hemorrhage control, massive transfusion protocols, and resuscitative procedures. Lab: primary trauma survey simulation with moulage patients. Includes chest tube, IO access, and splinting practicum.", diff: "ADVANCED", dur: "4 weeks", ce: 18, badge: "Trauma Responder", instr: "Dr. Sarah Mitchell, DO, FAAEM", tags: "trauma,ATLS,resuscitation,simulation,procedures", enrolled: 48, rating: 4.8 },
+      { title: "ED Pharmacology & Prescribing", cat: "Core Curriculum", desc: "High-risk ED medications, weight-based dosing, vasopressors, RSI agents, pain management pathways, and antibiotic stewardship. Opioid-alternative protocols and medication-assisted treatment for substance use disorders.", diff: "INTERMEDIATE", dur: "3 weeks", ce: 10, badge: "ED Pharmacology", instr: "Dr. Alan Chen, PharmD, BCPS", tags: "pharmacology,prescribing,opioids,MAT", enrolled: 52, rating: 4.7 },
+      { title: "Pediatric Emergency Medicine", cat: "Residency — Milestone 4", desc: "Age-specific assessment of pediatric emergencies: febrile neonates, respiratory distress, dehydration, NAT screening, and pediatric resuscitation. Broselow tape, PALS protocols, and family-centered care. Simulation: seizing 2-year-old.", diff: "ADVANCED", dur: "3 weeks", ce: 14, badge: "Pediatric ED", instr: "Dr. Lisa Patel, MD, FAAP", tags: "pediatrics,PALS,neonatal,simulation,case study", enrolled: 48, rating: 4.9 },
+      { title: "Procedures & Clinical Skills Lab", cat: "Core Curriculum", desc: "Hands-on procedural training: laceration repair, abscess I&D, fracture reduction, joint aspiration, lumbar puncture, central line placement, and point-of-care ultrasound (POCUS). Competency-based sign-off required.", diff: "ADVANCED", dur: "5 weeks", ce: 20, badge: "Procedural Expert", instr: "Dr. Mark Rivera, PA-C, DMSc", tags: "procedures,suturing,POCUS,ultrasound,simulation", enrolled: 52, rating: 4.8 },
+      { title: "Psychiatric & Behavioral Emergencies", cat: "Residency — Milestone 5", desc: "Management of acute psychosis, suicidal ideation risk stratification (Columbia Protocol), agitation de-escalation, medical clearance, and involuntary hold criteria. Case study: agitated patient with unknown ingestion.", diff: "INTERMEDIATE", dur: "2 weeks", ce: 8, badge: "Behavioral Health", instr: "Dr. Kathy Nguyen, DNP, PMHNP-BC", tags: "psychiatric,suicide,agitation,case study", enrolled: 48, rating: 4.7 },
+      { title: "Diagnostic Reasoning & Risk Stratification", cat: "Core Curriculum", desc: "Develop expert clinical reasoning for undifferentiated patients. Bayesian reasoning, test characteristics, HEART/Wells/PERC scores, disposition decisions, and high-risk discharge planning. 10 standardized case studies with guided debriefs.", diff: "ADVANCED", dur: "3 weeks", ce: 12, badge: "Clinical Reasoning", instr: "Dr. Rachel Torres, MD, FACEP", tags: "reasoning,risk,disposition,case study", enrolled: 52, rating: 4.8 },
+      { title: "Sepsis, Shock & Critical Care", cat: "Residency — Milestone 6", desc: "Early recognition and bundled management of sepsis, septic shock, anaphylaxis, and cardiogenic shock. qSOFA, lactate trends, fluid resuscitation, vasopressor selection, and ventilator management basics. Simulation: septic patient deterioration.", diff: "ADVANCED", dur: "3 weeks", ce: 14, badge: "Critical Care", instr: "Dr. James Park, MD, FACC", tags: "sepsis,shock,critical care,simulation,qSOFA", enrolled: 48, rating: 4.9 },
+      { title: "Quality Improvement & EBP Capstone", cat: "Residency — Capstone", desc: "Design and present a QI project addressing an ED performance metric. Learn PDSA cycles, statistical process control, and how to critically appraise literature. Residents present findings at Nouvelle ED Grand Rounds. Required for residency completion.", diff: "INTERMEDIATE", dur: "6 weeks", ce: 10, badge: "QI Scholar", instr: "Dr. Sarah Mitchell, DO, FAAEM", tags: "QI,capstone,evidence-based,leadership", enrolled: 48, rating: 4.8 },
     ],
     campuslearn: [
       { title: "Introduction to Data Science", cat: "Data Science", desc: "Foundational data science concepts including Python, statistics, and visualization.", diff: "BEGINNER", dur: "8 weeks", ce: 0, badge: "Data Explorer", instr: "Prof. Maria Santos", tags: "python,data,statistics", enrolled: 456, rating: 4.8 },
@@ -411,11 +417,13 @@ async function seedDatabase() {
       { name: "Aisha Patel, PhD", role: "Mindfulness Coach", spec: "Mindfulness", bio: "Certified MBSR instructor", avatar: "AP", rating: 4.9, sessions: 198, slot: null, rate: "Included" },
       { name: "James Liu, PsyD", role: "Communication Coach", spec: "Communication", bio: "Executive communication expert", avatar: "JL", rating: 4.7, sessions: 167, slot: "Thu, 3:30 PM", rate: "Included" },
     ],
-    nursepath: [
-      { name: "Dr. Rachel Green", role: "Clinical Educator", spec: "Assessment", bio: "20 years in clinical education", avatar: "RG", rating: 4.9, sessions: 289, slot: "Tomorrow, 11 AM", rate: "$75/hr" },
-      { name: "Dr. Alan Brooks", role: "Pharmacist", spec: "Pharmacology", bio: "Board-certified pharmacologist", avatar: "AB", rating: 4.8, sessions: 198, slot: null, rate: "$85/hr" },
-      { name: "Dr. Lisa Wang", role: "Telehealth Specialist", spec: "Virtual Care", bio: "Telehealth education pioneer", avatar: "LW", rating: 4.7, sessions: 156, slot: "Wed, 1 PM", rate: "$65/hr" },
-      { name: "Dr. Kathy Nguyen", role: "Wound Care Expert", spec: "Wound Management", bio: "National wound care consultant", avatar: "KN", rating: 4.9, sessions: 234, slot: "Fri, 9 AM", rate: "$90/hr" },
+    nouvelleed: [
+      { name: "Dr. Rachel Torres, MD, FACEP", role: "Residency Director", spec: "Emergency Medicine", bio: "Board-certified EM physician, 18 years ED leadership. Oversees all NP residency curriculum and milestone assessments.", avatar: "RT", rating: 4.9, sessions: 312, slot: "Tomorrow, 11 AM", rate: "Included" },
+      { name: "Dr. James Park, MD, FACC", role: "Cardiology Faculty", spec: "Cardiac Emergencies", bio: "Interventional cardiologist specializing in ED cardiac education and STEMI protocol design.", avatar: "JP", rating: 4.9, sessions: 198, slot: "Wed, 2 PM", rate: "Included" },
+      { name: "Dr. Sarah Mitchell, DO, FAAEM", role: "Trauma Faculty", spec: "Trauma & Resuscitation", bio: "Level I trauma center attending, ATLS instructor, and simulation center director.", avatar: "SM", rating: 4.8, sessions: 267, slot: "Thu, 9 AM", rate: "Included" },
+      { name: "Dr. Lisa Patel, MD, FAAP", role: "Pediatric EM Faculty", spec: "Pediatric Emergencies", bio: "Dual-boarded in EM and pediatrics with focus on NP education in pediatric acute care.", avatar: "LP", rating: 4.9, sessions: 156, slot: null, rate: "Included" },
+      { name: "Dr. Mark Rivera, PA-C, DMSc", role: "Procedures Preceptor", spec: "Clinical Procedures", bio: "APP procedures champion. Runs the simulation lab for suturing, I&D, POCUS, and central lines.", avatar: "MR", rating: 4.8, sessions: 234, slot: "Fri, 10 AM", rate: "Included" },
+      { name: "Dr. Kathy Nguyen, DNP, PMHNP-BC", role: "Behavioral Health Faculty", spec: "Psychiatric Emergencies", bio: "Psych NP with 12 years of ED behavioral health consultation experience.", avatar: "KN", rating: 4.7, sessions: 145, slot: "Mon, 1 PM", rate: "Included" },
     ],
     campuslearn: [
       { name: "Prof. Maria Santos", role: "Data Science Mentor", spec: "Python & Analytics", bio: "Former data scientist at Google", avatar: "MS", rating: 4.9, sessions: 412, slot: "Tomorrow, 4 PM", rate: "Free" },
@@ -866,10 +874,10 @@ async function start() {
     console.log(`\n🚀 LMS Platform running at http://localhost:${PORT}`);
     console.log(`\n📋 Demo accounts:`);
     console.log(`   Admin:   admin@mindwell.com / admin123     (Wellness)`);
-    console.log(`   Admin:   admin@nursepath.com / admin123    (Healthcare)`);
+    console.log(`   Admin:   admin@nouvelleed.com / admin123    (Healthcare)`);
     console.log(`   Admin:   admin@campuslearn.com / admin123  (Education)`);
     console.log(`   Learner: alex@company.com / learn123`);
-    console.log(`   Learner: maria@hospital.com / learn123`);
+    console.log(`   Learner: maria@nouvelleed.com / learn123`);
     console.log(`   Learner: jordan@university.edu / learn123\n`);
   });
 }
